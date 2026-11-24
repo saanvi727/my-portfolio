@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saanvi Jain | Software, ML, and privacy engineering</title>
+<meta name="description" content="Saanvi Jain is a Cornell computer science student building privacy tooling, machine learning research, and products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090B0F;--cream:#F3EFE8;--mute:#A9A8A4;--amber:#FFC46B;--line:#252832}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{overflow-x:clip;font:400 1.05rem/1.65 'Hanken Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--cream)}
+body::after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+h1,h2,h3,.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;line-height:.95;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;background:rgba(9,11,15,.6);backdrop-filter:blur(10px)}
+nav b{font:400 1.4rem 'Instrument Serif',serif}
+nav div{display:flex;gap:26px;font-size:.95rem}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--cream)}
+#hero{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:110px 4vw 7vh;--x:70%;--y:45%;--r:0px;--nx:0px;--ny:0px;--nr:0px}
+.layer{position:absolute;inset:0}
+.dim{filter:brightness(.32) grayscale(.5)}
+.lit{-webkit-mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 35%,transparent 100%);mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 35%,transparent 100%)}
+.layer img{position:absolute;right:6vw;bottom:0;height:min(88vh,920px);-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.stack{position:relative;z-index:3}.name{font-size:clamp(4.5rem,15vw,14rem);line-height:.92;letter-spacing:-.03em;margin-bottom:28px;color:transparent;background:radial-gradient(circle var(--nr) at var(--nx) var(--ny),#F3EFE8 30%,#565963 100%);-webkit-background-clip:text;background-clip:text}
+#hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle var(--r) at var(--x) var(--y),rgba(255,196,107,.14),transparent 70%)}
+.copy{max-width:30rem}
+.copy p{font-size:1.15rem;margin-bottom:20px}
+.btn{display:inline-block;padding:12px 22px;margin:0 10px 10px 0;border:1.5px solid var(--amber);border-radius:999px;background:var(--amber);color:#14110A;font:600 1rem 'Hanken Grotesk',sans-serif;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--cream);border-color:#5b5e69}
+.btn:hover{background:var(--cream);border-color:var(--cream);color:#14110A}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof div{padding:34px 5vw;border-right:1px solid var(--line)}
+.proof div:last-child{border:0}
+.proof b{display:block;font:400 clamp(1.6rem,2.6vw,2.4rem)/1.05 'Instrument Serif',serif}
+.proof span{color:var(--mute);font-size:.95rem}
+.sec{max-width:1200px;margin:0 auto;padding:13vh 5vw 4vh}
+.sec h2{font-size:clamp(2.6rem,6vw,5.5rem)}
+.sub{color:var(--mute);margin-top:12px;max-width:54ch}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.arrows button{width:46px;height:46px;margin-left:8px;border-radius:50%;border:1.5px solid #5b5e69;background:transparent;color:var(--cream);font-size:1.2rem;cursor:pointer}
+.arrows button:hover{border-color:var(--amber);color:var(--amber)}
+#reel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px 5vw 28px;scrollbar-width:thin;scrollbar-color:#3b3e49 transparent}
+.poster{flex:0 0 min(78vw,330px);aspect-ratio:2/3;scroll-snap-align:start;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:22px;text-align:left;color:var(--cream);font:inherit;background:#0E1117;border:1px solid #2c303b;border-radius:16px;cursor:pointer;transition:border-color .2s,transform .2s}
+.poster:hover{border-color:var(--amber);transform:translateY(-4px)}
+.poster svg{position:absolute;left:0;top:0;width:100%;height:58%}
+.poster h3{position:relative;font-size:2.5rem}
+.poster p{position:relative;color:var(--mute);font-size:.95rem;line-height:1.4}
+.poster i{position:relative;color:var(--amber);font-style:normal;font-weight:600;font-size:.9rem}
+.job{display:grid;grid-template-columns:210px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.job time{color:var(--mute)}
+.job h3{font-size:1.9rem}
+.job p{color:var(--mute);margin-top:6px;max-width:62ch}
+.tl{position:relative;margin-top:36px;padding-left:40px}
+.tl::before{content:"";position:absolute;left:7px;top:10px;bottom:0;width:2px;background:var(--line)}
+.yr{position:relative;margin:44px 0 6px;font:400 2.8rem/1 'Instrument Serif',serif;color:var(--mute)}
+.yr:first-child{margin-top:0}
+.yr::before{content:"";position:absolute;left:-40px;top:.3em;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--mute)}
+.ev{position:relative;display:grid;grid-template-columns:190px 1fr;gap:20px;padding:18px 0}
+.ev::before{content:"";position:absolute;left:-35px;top:30px;width:10px;height:10px;border-radius:50%;background:var(--amber)}
+.ev.now::before{box-shadow:0 0 0 6px rgba(255,196,107,.22)}
+.when{color:var(--mute);font-size:.92rem;padding-top:5px}
+.ev h3{font-size:1.75rem;line-height:1.05}
+.kind{color:var(--amber);font-size:.9rem;font-weight:600;margin-top:4px}
+.ev p{color:var(--mute);margin-top:6px;max-width:60ch}
+.strip{display:flex;overflow-x:auto;padding:0 5vw 30px;margin-top:36px;scrollbar-width:thin;scrollbar-color:#3b3e49 transparent}
+.fr{position:relative;flex:0 0 min(80vw,330px);min-height:450px;padding:62px 24px;background:#161921;border-right:3px solid var(--bg)}
+.fr::before,.fr::after{content:"";position:absolute;left:0;right:0;height:18px;background:repeating-linear-gradient(90deg,transparent 0 11px,var(--bg) 11px 29px,transparent 29px 40px)}
+.fr::before{top:20px}.fr::after{bottom:20px}
+.num{display:block;font:400 6.5rem/.9 'Instrument Serif',serif;color:transparent;-webkit-text-stroke:1.2px var(--amber)}
+.fr.now .num{color:var(--amber)}
+.where{color:var(--mute);margin:10px 0 18px}
+.fr h3{font-size:2rem;line-height:1.02;margin-bottom:12px}
+.fr p+h3+p{color:#D5D2CB;font-size:.98rem}
+.credits{max-width:780px;margin:8vh auto 0;padding:12vh 5vw 4vh;text-align:center;border-top:1px solid var(--line)}
+.credits h3{font-size:clamp(2.4rem,5vw,3.6rem)}
+.cr{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr);gap:14px 22px;margin:44px 0;text-align:left;line-height:1.45}.cr dd{text-wrap:pretty}
+.cr dt{text-align:right;color:var(--mute)}
+.credits .loc{font:italic 400 clamp(1.25rem,3.6vw,1.6rem)/1.2 'Instrument Serif',serif;color:var(--mute);text-wrap:balance;max-width:24ch;margin:0 auto}.credits h3{text-wrap:balance}
+.credits .end{font:400 clamp(3.5rem,9vw,6.5rem)/1 'Instrument Serif',serif;margin:36px 0 28px}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(560px circle at var(--mx,60%) var(--my,25%),rgba(255,196,107,.075),transparent 70%)}
+.ths{margin-top:40px;border-top:1px solid var(--line)}
+.th{display:grid;grid-template-columns:1.1fr 1fr;gap:6vw;padding:38px 0;border-bottom:1px solid var(--line)}
+.th h3{font-size:clamp(2.1rem,4.4vw,3.8rem);line-height:1}
+.th p{color:#D5D2CB;max-width:48ch}
+.seen{margin-top:16px;color:var(--mute);font-size:.9rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seen span{border:1px solid #3b3e49;border-radius:999px;padding:3px 12px;color:var(--cream)}
+.story{display:grid;grid-template-columns:1fr 1.2fr;gap:6vw}
+.story p{color:#D5D2CB;margin-bottom:16px;max-width:58ch}
+.places{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.places div{border-top:1px solid #4a4d58;padding-top:14px}
+.places h3{font-size:2.2rem}
+.places p{color:var(--mute);font-size:.95rem;margin-top:8px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:end}
+form{display:grid;gap:12px}
+input,textarea{font:inherit;width:100%;padding:13px 16px;border:1px solid #3b3e49;border-radius:12px;background:#10131a;color:var(--cream)}
+.links{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 24px}
+.links a{color:var(--amber);font-weight:600}
+footer{padding:0 5vw 40px;color:var(--mute);font-size:.9rem;text-align:center}
+dialog{margin:auto;width:min(92vw,660px);max-height:88vh;overflow:auto;padding:34px;background:#0E1117;color:var(--cream);border:1px solid #3b3e49;border-radius:20px}
+dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(6px)}
+dialog h3{font-size:3.2rem}
+dialog .role{color:var(--mute);margin:10px 0 22px}
+dialog .big{font:italic 400 1.9rem/1.1 'Instrument Serif',serif;margin-bottom:16px}
+dialog p{color:#D5D2CB;margin-bottom:14px}
+dialog .tech{color:var(--mute);font-size:.92rem}
+dialog a.go{color:var(--amber);font-weight:600}
+dialog ul{list-style:none;padding:0}
+dialog li{padding:12px 0;border-top:1px solid var(--line);color:#D5D2CB}
+dialog li b{display:block;color:var(--cream)}
+dialog img{display:block;max-width:100%;margin:8px 0;border-radius:8px;border:1px solid var(--line)}
+dialog .btn{margin-top:20px}
+@media(max-width:900px){
+nav div{gap:14px;font-size:.85rem}nav b{font-size:1.2rem}
+#hero{min-height:100svh;padding-top:90px}
+.layer img{right:0;left:0;margin:auto;top:64px;bottom:auto;height:54vh}
+.name{font-size:22vw}
+.copy{max-width:none}
+.proof{grid-template-columns:1fr}.proof div{border-right:0;border-bottom:1px solid var(--line);padding:22px 6vw}
+.ev{grid-template-columns:1fr;gap:2px}.tl{padding-left:34px}.yr::before{left:-34px}.ev::before{left:-29px}
+.story,.contact,.places,.th{grid-template-columns:1fr}.th{gap:14px;padding:28px 0}.cr{gap:12px 14px;font-size:.95rem}
+.arrows{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <b>Saanvi Jain</b>
+  <div><a href="#work">Work</a><a href="#experience">Experience</a><a href="#story">About</a><a href="#contact">Contact</a><a href="assets/Saanvi_Jain_Resume.pdf">Resume</a></div>
+</nav>
+
+<header id="hero">
+  <div class="layer dim"><img src="assets/profile.png" alt="Saanvi Jain smiling in an arched hallway" onerror="this.style.display='none'"></div>
+  <div class="layer lit" aria-hidden="true"><img src="assets/profile.png" alt="" onerror="this.style.display='none'"></div>
+  <div class="stack">
+    <h1 class="name">Saanvi<br>Jain</h1>
+    <div class="copy">
+      <p>Computer science at Cornell, class of 2027. I build privacy tooling, run machine learning research, and ship product. Open to full-time roles starting in 2027.</p>
+      <a class="btn" href="#work">See my work</a><a class="btn alt" href="assets/Saanvi_Jain_Resume.pdf">Resume</a>
+    </div>
+  </div>
+</header>
+
+<div class="proof">
+  <div><b>Paper at NeurIPS 2026</b><span>Co-authored, accepted to the InterpScience Workshop</span></div>
+  <div><b>Co-founder of NearMet</b><span>Designed and built the product and backend</span></div>
+  <div><b>Privacy engineering at EY</b><span>Automated RoPA-to-diagram workflows in Mumbai</span></div>
+</div>
+
+<main>
+  <section class="sec" id="work" style="padding-bottom:0">
+    <div class="head">
+      <div><h2>Selected work</h2><p class="sub">Scroll sideways and open any project for the full story.</p></div>
+      <div class="arrows"><button type="button" id="prev" aria-label="Previous projects">&#8592;</button><button type="button" id="next" aria-label="Next projects">&#8594;</button></div>
+    </div>
+  </section>
+  <div id="reel" tabindex="0" aria-label="Projects"></div>
+
+  <section class="sec" id="experience"><h2>Experience</h2><div class="tl"><div class="yr">2026</div><div class="ev now"><div class="when">Aug to Dec 2026</div><div><h3>Teaching Assistant, CS 4320 Database Systems</h3><div class="kind">Teaching, Cornell</div><p>Weekly office hours, Ed Discussion support, schema design help, and grading.</p></div></div><div class="ev"><div class="when">Jun to Aug 2026</div><div><h3>Cybersecurity &amp; Data Privacy Consulting Intern, EY</h3><div class="kind">Work, Mumbai</div><p>Built RoPA-to-diagram automation in Python, drafted RoPAs with Copilot, and supported DPIAs under GDPR and DPDPA.</p></div></div><div class="ev now"><div class="when">Apr 2026 to present</div><div><h3>Co-founder, NearMet</h3><div class="kind">Startup, Ithaca</div><p>Product, expansion planning, and the Supabase and PostgreSQL backend for an interest-based social discovery app.</p></div></div><div class="yr">2025</div><div class="ev"><div class="when">Nov 2025 to Oct 2026</div><div><h3>AI Researcher, Algoverse</h3><div class="kind">Research, remote</div><p>Co-authored a paper on how LoRA and full fine-tuning change internal representations, accepted to a NeurIPS 2026 workshop.</p></div></div><div class="ev"><div class="when">Jan 2025 to Jan 2026</div><div><h3>VP of Recruitment, Cornell FinTech Club</h3><div class="kind">Leadership, Cornell</div><p>Led recruiting strategy, events, and onboarding. Also built FinBot as a software engineer on the club.</p></div></div><div class="yr">2024</div><div class="ev"><div class="when">Dec 2024 to Jan 2026</div><div><h3>Business Subteam Lead, Cornell Cup Robotics</h3><div class="kind">Leadership, Cornell</div><p>Sponsor relationships, finances, social media, and team events.</p></div></div><div class="ev"><div class="when">Jun to Jul 2024</div><div><h3>Financial Software Engineering Intern, Hedgit Solutions</h3><div class="kind">Work, Dubai</div><p>Built a Solana order-entry bot and a market-data pipeline across four exchanges.</p></div></div><div class="yr">2022</div><div class="ev"><div class="when">Jun 2022 to May 2024</div><div><h3>Founder, CompSci Network</h3><div class="kind">Founding, Dubai</div><p>An IB Computer Science learning platform with study modules, mentoring, and a community for women in computing.</p></div></div></div></section>
+
+  <section class="sec" id="story"><h2>What ties it together</h2><p class="sub">Different projects, the same three habits.</p><div class="ths"><div class="th"><h3>I like handling people’s data with care.</h3><div><p>From privacy automation at EY to the backend of a social app, I keep ending up where personal data meets real products, and I want it done right.</p><div class="seen">Seen in <span>RoPA to diagrams</span><span>NearMet</span><span>FinBot</span></div></div></div><div class="th"><h3>I want to know why it works.</h3><div><p>I’d rather understand a result than just report it, whether that’s what LoRA changes inside a model or which search strategy actually finds the best protein.</p><div class="seen">Seen in <span>LoRA vs full fine-tuning</span><span>Protein search</span></div></div></div><div class="th"><h3>I like making things other people use.</h3><div><p>It started with a study site for IB students in Dubai, and it’s why I co-founded NearMet and help students as a database TA.</p><div class="seen">Seen in <span>NearMet</span><span>CompSci Network</span><span>CS 4320</span></div></div></div></div><p class="sub" style="margin-top:44px">I’m an Aditya Birla Group Pratibha Scholar, and I won Gold in the UKMT Senior Maths Challenge.</p></section>
+
+  <section class="sec" id="contact">
+    <div class="contact">
+      <div><h2>Let’s talk.</h2><div class="links"><a href="mailto:sj727@cornell.edu">sj727@cornell.edu</a><a href="https://github.com/saanvi727" target="_blank" rel="noopener">GitHub</a><a href="assets/Saanvi_Jain_Resume.pdf">Resume</a></div></div>
+      <form action="https://formspree.io/f/mblklkgp" method="POST">
+        <input type="text" name="name" placeholder="Your name" aria-label="Your name" required>
+        <input type="email" name="_replyto" placeholder="Your email" aria-label="Your email" required>
+        <textarea name="message" rows="5" placeholder="Your message" aria-label="Your message" required></textarea>
+        <button type="submit" class="btn" style="width:max-content">Send message</button>
+      </form>
+    </div>
+  </section>
+</main>
+<div class="credits">
+  <h3>Directed by Saanvi Jain</h3>
+  <dl class="cr">
+    <dt>Languages</dt><dd>Python, Java, JavaScript, TypeScript, SQL, R, OCaml</dd>
+    <dt>Web and data</dt><dd>React, Flask, REST APIs, PostgreSQL, MySQL, SQLite, Supabase</dd>
+    <dt>AI and ML</dt><dd>Scikit-learn, TensorFlow, LangChain, Gemini, NLP, Pandas, Plotly</dd>
+    <dt>Tools</dt><dd>Git, JIRA, VS Code, IntelliJ</dd>
+  </dl>
+  <p class="loc">Filmed on location in Ithaca, Mumbai, and Dubai</p>
+  <p class="end">The End</p>
+  <footer>© 2026 Saanvi Jain</footer>
+</div>
+
+<dialog id="dlg"></dialog>
+
+<script>
+(()=>{
+const A='#FFC46B',C='#F3EFE8';
+let s=7;const rnd=()=>(s=(s*16807)%2147483647)/2147483647;
+function art(k){
+  let b='';
+  if(k==='people')b=`<g fill="none" stroke="${C}" stroke-opacity=".55" stroke-width="1.5"><circle cx="115" cy="120" r="62"/><circle cx="190" cy="120" r="62"/><circle cx="152" cy="178" r="62"/></g><circle cx="152" cy="140" r="9" fill="${A}"/>`;
+  if(k==='lora'){for(let i=0;i<24;i++)b+=`<circle cx="${70+rnd()*36}" cy="${70+rnd()*110}" r="3.5" fill="${C}" fill-opacity=".7"/>`;for(let i=0;i<24;i++)b+=`<circle cx="${160+rnd()*110}" cy="${40+rnd()*170}" r="3.5" fill="${A}"/>`}
+  if(k==='ropa')b=`<g fill="none" stroke="${C}" stroke-opacity=".6" stroke-width="1.5"><rect x="36" y="50" width="86" height="52" rx="10"/><rect x="180" y="50" width="86" height="52" rx="10"/><rect x="108" y="150" width="86" height="52" rx="10"/><path d="M122 76h58M79 102l50 48M223 102l-50 48" stroke="${A}" stroke-opacity="1"/></g><circle cx="151" cy="76" r="5" fill="${A}"/>`;
+  if(k==='protein'){for(let i=1;i<=6;i++)b+=`<ellipse cx="190" cy="115" rx="${i*18}" ry="${i*13}" fill="none" stroke="${C}" stroke-opacity="${.75-i*.09}" stroke-width="1.3"/>`;b+=`<path d="M50 200L90 170L120 175L150 140L180 120L190 115" fill="none" stroke="${A}" stroke-width="2"/><circle cx="190" cy="115" r="7" fill="${A}"/>`}
+  if(k==='fin'){[60,100,80,140,120,170].forEach((h,i)=>b+=`<rect x="${50+i*36}" y="${210-h}" width="22" height="${h}" rx="3" fill="${i===5?A:C}" fill-opacity="${i===5?1:.35}"/>`);b+=`<path d="M60 70h120a10 10 0 0 1 10 10v22a10 10 0 0 1-10 10H100l-20 16v-16H60a10 10 0 0 1-10-10V80a10 10 0 0 1 10-10z" fill="none" stroke="${A}" stroke-width="1.5"/>`}
+  if(k==='more')for(let i=0;i<9;i++)b+=`<rect x="${70+(i%3)*58}" y="${50+Math.floor(i/3)*58}" width="44" height="44" rx="8" fill="none" stroke="${i===4?A:C}" stroke-opacity="${i===4?1:.45}" stroke-width="1.5"/>`;
+  return `<svg viewBox="0 0 300 260" aria-hidden="true" preserveAspectRatio="xMidYMid meet">${b}</svg>`;
+}
+const L=[
+{t:'NearMet',tag:'Social discovery built around shared interests.',role:'Co-founder, April 2026 to present',big:'Auth, matching, messaging, and Passport, built and launched.',body:'People find each other through shared interests, and Passport lets them share food and place experiences with photos, location tags, and recommendations. I designed the PostgreSQL data model and backend workflows, and I lead product and expansion planning.',tech:'React, Supabase, PostgreSQL',link:['https://nearmet.com','Visit nearmet.com'],art:'people'},
+{t:'LoRA vs full fine-tuning',tag:'Same accuracy. Different insides.',role:'Algoverse AI research, 2025 to 2026',big:'Lower dimensionality under LoRA in 9 of 9 matched comparisons.',body:'Co-authored a paper accepted to the InterpScience Workshop at NeurIPS 2026, “Performance Matching Does Not Imply Representational Equivalence in LoRA and Full Encoder Fine-Tuning.” I built the analysis pipelines using participation ratio, effective rank, and factor interference.',tech:'Python, representation analysis',art:'lora'},
+{t:'RoPA to diagrams',tag:'From spreadsheets to data-flow diagrams.',role:'EY, Mumbai, summer 2026',big:'Less manual Visio work for privacy teams.',body:'A Python workflow that converts records of processing activities into Excel-based data-flow diagrams. I also used Microsoft Copilot to draft RoPAs from client meeting recordings, and supported DPIAs against GDPR and DPDPA requirements.',tech:'Python, Excel, GDPR, DPDPA',art:'ropa'},
+{t:'Protein search',tag:'Nine ways to search on a tiny budget.',role:'CS 4701 team project, fall 2026',big:'Which search strategy finds the best protein fastest?',body:'An AI system that searches protein fitness landscapes on FLIP2 datasets, treated as a lab with limited experiments. We compared random, greedy, uncertainty-based, genetic, simulated annealing, and Ridge-guided methods on regret, top-k discovery, and query efficiency, then extended it to IRED data.',tech:'Python, FLIP2, IRED',art:'protein'},
+{t:'FinBot',tag:'Ask SEC filings anything.',role:'Cornell FinTech Club, 2024 to 2025',big:'Plain-English questions in, database queries out.',body:'A pipeline that ingests and normalizes SEC 13F filings in PostgreSQL, with a LangChain SQL agent on Gemini 2.0 Flash. Users explore holdings, sector shifts, and changes between reporting periods without writing SQL.',tech:'Python, PostgreSQL, LangChain, Gemini 2.0 Flash',art:'fin'},
+{t:'More builds',tag:'Dashboards, games, and data projects.',role:'Smaller projects',list:[['Stock dashboard','Interactive Python dashboard comparing stocks by price, returns, volatility, and moving averages, built with Plotly and Streamlit.','assets/project2_1.png'],['Tesla tweet sentiment','15,000+ tweets analyzed with VADER and TextBlob against short-term price moves.'],['Hospital classifier','R decision tree. Lowering the threshold from 0.50 to about 0.16 raised recall from 1.8% to 34.4%.'],['Snakes & Ladders','OCaml desktop game with a Bogue GUI, save and load, and an OUnit2 test suite.'],['Order-entry bot','Solana API order entry at Hedgit Solutions, plus a market-data pipeline across four exchanges.']],art:'more'}
+];
+const reel=document.getElementById('reel'),dlg=document.getElementById('dlg');
+L.forEach((p,i)=>{
+  const b=document.createElement('button');b.type='button';b.className='poster';
+  b.innerHTML=art(p.art)+`<i>${p.role}</i><h3>${p.t}</h3><p>${p.tag}</p>`;
+  b.addEventListener('click',()=>{
+    let h=`<h3>${p.t}</h3><p class="role">${p.role}</p>`;
+    if(p.list)h+='<ul>'+p.list.map(x=>`<li><b>${x[0]}</b>${x[1]}${x[2]?`<img src="${x[2]}" alt="${x[0]} screenshot" onerror="this.style.display='none'">`:''}</li>`).join('')+'</ul>';
+    else h+=`<p class="big">${p.big}</p><p>${p.body}</p><p class="tech">${p.tech}</p>`+(p.link?`<p><a class="go" href="${p.link[0]}" target="_blank" rel="noopener">${p.link[1]}</a></p>`:'');
+    h+='<button type="button" class="btn alt" id="close">Close</button>';
+    dlg.innerHTML=h;dlg.showModal();
+    document.getElementById('close').addEventListener('click',()=>dlg.close());
+  });
+  reel.appendChild(b);
+});
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+const step=()=>Math.min(reel.clientWidth*.8,700);
+document.getElementById('prev').addEventListener('click',()=>reel.scrollBy({left:-step(),behavior:'smooth'}));
+document.getElementById('next').addEventListener('click',()=>reel.scrollBy({left:step(),behavior:'smooth'}));
+
+document.addEventListener('pointermove',e=>{const d=document.documentElement.style;d.setProperty('--mx',e.clientX+'px');d.setProperty('--my',e.clientY+'px')});
+const h=document.getElementById('hero'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let tx=.7,ty=.45,x=.7,y=.45,r=0,moved=false;
+const goal=()=>Math.max(220,Math.min(innerWidth*.26,400));
+const nm=h.querySelector('.name');
+function set(){h.style.setProperty('--x',x*100+'%');h.style.setProperty('--y',y*100+'%');h.style.setProperty('--r',r+'px');const hb=h.getBoundingClientRect(),nb=nm.getBoundingClientRect();h.style.setProperty('--nx',(hb.left+x*hb.width-nb.left)+'px');h.style.setProperty('--ny',(hb.top+y*hb.height-nb.top)+'px');h.style.setProperty('--nr',(reduce?4000:r*.95)+'px')}
+if(reduce){r=goal()*1.2;set()}else{
+  h.addEventListener('pointermove',e=>{const b=h.getBoundingClientRect();tx=(e.clientX-b.left)/b.width;ty=(e.clientY-b.top)/b.height;moved=true});
+  h.addEventListener('pointerleave',()=>{moved=false});
+  const t0=performance.now();
+  (function loop(t){
+    const s2=(t-t0)/1000;
+    if(!moved){tx=.5+.3*Math.sin(s2*.5);ty=.42+.2*Math.cos(s2*.37)}
+    x+=(tx-x)*.08;y+=(ty-y)*.08;r+=(goal()-r)*.035;
+    set();requestAnimationFrame(loop);
+  })(t0);
+}
+})();
+</script>
+</body>
+</html>

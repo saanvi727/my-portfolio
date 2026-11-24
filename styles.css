@@ -1,0 +1,234 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0e0e1a;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ffe1;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav li {
+  margin-left: 20px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
+  color: #00ffe1;
+}
+
+/* Sections */
+.section {
+  min-height: 100vh;
+  padding: 160px 20px 140px;
+  scroll-margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #00ffe7;
+  text-align: center;
+}
+.section p {
+  max-width: 800px;
+  margin: 0 auto 1.2rem;
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-text {
+  flex: 1;
+  padding-right: 20px;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
+}
+.hero-text h1 span {
+  color: #00ffe1;
+}
+.hero-text h2 {
+  margin: 10px 0;
+  font-weight: 400;
+}
+.hero-img {
+  flex: 1;
+  text-align: center;
+}
+.hero-img img {
+  width: 250px;
+  border-radius: 12px;
+  border: 4px solid #00ffe1;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 0.7rem 1.5rem;
+  background: #00ffe1;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #00c9b7;
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: #1a1a2e;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 255, 225, 0.1);
+}
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.project-card h3 {
+  margin: 10px 0 5px;
+}
+.project-card p {
+  color: #aaa;
+}
+
+/* Contact */
+form {
+  max-width: 600px;
+  margin: auto;
+}
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #1a1a2e;
+  color: #fff;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #888;
+}
+button.btn {
+  width: 100%;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: #666;
+  background-color: #111;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+.divider {
+  height: 1px;
+  width: 100%;
+  margin: 60px auto;
+  background: linear-gradient(to right, #00ffe1, #1a1a2e);
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
+/* Slideshow inside project card */
+.slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: 180px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slide {
+  min-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: none;
+  border-radius: 6px;
+}
+.slide.active {
+  display: block;
+}
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 3px;
+}
+.slider .prev {
+  left: 10px;
+}
+.slider .next {
+  right: 10px;
+}
